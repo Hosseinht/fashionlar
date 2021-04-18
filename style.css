@@ -38,7 +38,7 @@ body {
   margin: 0 auto 0 auto;
   width: 80%;
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   justify-content: space-between;
   align-items: center;
   color: white;
@@ -136,7 +136,7 @@ body {
 .reveal-text,
 .reveal-img {
   position: absolute;
-  width: 100%;
+  width: 101%;
   height: 100%;
   background: #17181a;
   top: 0;
