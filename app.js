@@ -1,7 +1,9 @@
 let controller;
 let slideScene;
 let pageScene;
-
+gsap.config({
+  nullTargetWarn: false,
+});
 function animateSlides() {
   // Init Controller
   controller = new ScrollMagic.Controller();
@@ -42,7 +44,7 @@ function animateSlides() {
     let nextSlide = slides.length - 1 === index ? "end" : slides[index + 1];
     pageTl.fromTo(nextSlide, { y: "0%" }, { y: "50%" });
     pageTl.fromTo(slide, { opacity: 1, scale: 1 }, { opacity: 0, scale: 0.5 });
-    pageTl.fromTo(nextSlide, { y: "50%" }, { y: "0%" }, "-=0.5");
+    pageTl.fromTo(nextSlide, { y: "50%" }, { y: "0%" }, "-=0.25");
     //Create new Scene
     pageScene = new ScrollMagic.Scene({
       triggerElement: slide,
@@ -60,4 +62,33 @@ function animateSlides() {
       .addTo(controller);
   });
 }
+
+let mouse = document.querySelector(".cursor");
+let mouseText = mouse.querySelector("span");
+
+function cursor(e) {
+  mouse.style.top = e.pageY + "px";
+  mouse.style.left = e.pageX + "px";
+}
+
+function activeCursor(e) {
+  console.log(e.target);
+  const item = e.target;
+  if (item.id === "logo" || item.classList.contains("burger")) {
+    mouse.classList.add("nav-active");
+  } else {
+    mouse.classList.remove("nav-active");
+  }
+  if (item.classList.contains("explore")) {
+    mouse.classList.add("explore-active");
+    mouseText.innerText = "Tap";
+  } else {
+    mouse.classList.remove("explore-active");
+    mouseText.innerText = "";
+  }
+}
+
+window.addEventListener("mousemove", cursor);
+window.addEventListener("mouseover", activeCursor);
+
 animateSlides();
