@@ -23,6 +23,8 @@ body {
   width: 80%;
   margin: auto;
   padding: 2rem 0rem;
+  z-index: 2;
+  position: relative;
 }
 
 .line1,
@@ -191,6 +193,9 @@ body {
 }
 .t-swipe3 {
   background: rgba(255, 139, 93);
+}
+body.hide {
+  overflow: hidden;
 }
 .scrollmagic-pin-spacer {
   position: static !important;
