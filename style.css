@@ -253,3 +253,23 @@ body.hide {
   padding: 2rem 2rem 0rem 0rem;
   margin-bottom: 10rem;
 }
+.swipe {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  transform: translateX(-100%);
+}
+.swipe1 {
+  background: rgba(167, 110, 231);
+  z-index: 5;
+}
+.swipe2 {
+  background: rgba(86, 124, 228);
+  z-index: 4;
+}
+.swipe3 {
+  background: rgba(255, 139, 39);
+  z-index: 3;
+}
